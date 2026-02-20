@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser: User writes and saves a note
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+
+    Note right of server: Server saves note to memory
+    server-->>browser: JSON Response of the saved note
+    deactivate server
+
+    Note right of browser: Browser re-renders notes without reloading page
